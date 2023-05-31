@@ -71,6 +71,12 @@ def get_classification_evaluation_metrics(class_actual, class_preds, average='bi
     f1 = skmetrics.f1_score(class_actual, class_preds, average=average)
     return precision, recall, f1
 
+def get_classification_evaluation_metrics_for_emotions(class_actual, class_preds, average='micro'):
+    precision = skmetrics.precision_score(class_actual, class_preds, average=average)
+    recall = skmetrics.recall_score(class_actual, class_preds, average=average)
+    f1 = skmetrics.f1_score(class_actual, class_preds, average=average)
+    return precision, recall, f1
+
 
 def plot_and_save_conf_matrix(class_actual, class_preds, figure_dir_path, figure_filename):
     confusion_matrix = skmetrics.confusion_matrix(class_actual, class_preds)
