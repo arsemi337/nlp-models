@@ -1,0 +1,11 @@
+# Training details
+
+All the trainings are fine-tuning of ***flax-community/papuGaPT2*** model. The used dataset is available in
+the [dataset .json file](../../../data/translated/sarcasm/sarcasm_headlines_dataset_pl.json).
+Originally it consists of 28619 data samples.
+
+| Training no. | Data samples | Train set % | Val set % | Test set % | Batch size | Epochs | Best epoch |         Fitting time         | Starting learning rate | Train accuracy | Train loss | Val accuracy | Val loss | Test accuracy | Test loss |               Accuracy figure               |               Loss figure               |               Confusion matrix                | Notes |
+|:------------:|:------------:|:-----------:|:---------:|:----------:|:----------:|:------:|:----------:|:----------------------------:|:----------------------:|:--------------:|:----------:|:------------:|:--------:|:-------------:|:---------:|:-------------------------------------------:|:---------------------------------------:|:---------------------------------------------:|:-----:|
+|      1       |     40k      |     80%     |    10%    |    10%     |     16     |   10   |     1      | 13min 42s (***RTX 3070Ti***) |          5e-5          |     0.7686     |   0.4729   |    0.7921    |  0.4359  |    0.8071     |  0.4110   | [figure](./figures/training_1_accuracy.png) | [figure](./figures/training_1_loss.png) | [figure](./figures/training_1_confmatrix.png) |  Ok   |
+|      2       |     40k      |     80%     |    10%    |    10%     |     16     |   10   |     1      | 13min 40s (***RTX 3070Ti***) |          5e-4          |     0.7323     |   0.5268   |    0.8075    |  0.4229  |    0.8127     |  0.4266   | [figure](./figures/training_2_accuracy.png) | [figure](./figures/training_2_loss.png) | [figure](./figures/training_2_confmatrix.png) |  Ok   |
+|      3       |     40k      |     80%     |    10%    |    10%     |     16     |   10   |     2      | 17min 19s (***RTX 3070Ti***) |          5e-6          |     0.8057     |   0.4171   |    0.7739    |  0.4683  |    0.7830     |  0.4549   | [figure](./figures/training_3_accuracy.png) | [figure](./figures/training_3_loss.png) | [figure](./figures/training_3_confmatrix.png) |  Ok   |
