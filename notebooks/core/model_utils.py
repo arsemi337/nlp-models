@@ -6,10 +6,10 @@ import tensorflow as tf
 import sklearn.metrics as skmetrics
 
 
-def split_train_val_test(tokenized_dataset, train_size, test_size_of_val_test_batch):
-    split_train_val_and_test_dataset = tokenized_dataset.train_test_split(train_size=train_size)
+def split_train_val_test(tokenized_dataset, train_size, test_size_of_val_test_batch, seed=42):
+    split_train_val_and_test_dataset = tokenized_dataset.train_test_split(train_size=train_size, seed=seed)
     split_val_test_dataset = split_train_val_and_test_dataset["test"].train_test_split(
-        test_size=test_size_of_val_test_batch)
+        test_size=test_size_of_val_test_batch, seed=seed)
 
     tokenized_train_dataset = split_train_val_and_test_dataset["train"]
     tokenized_val_dataset = split_val_test_dataset["train"]
@@ -59,10 +59,13 @@ def save_model(model, model_name, training_number, saved_models_dir, default_mod
     model.save(os.path.join(saved_models_dir, saved_model_name, default_model_version))
 
 
-def get_class_preds(model, test_dataset):
+def get_class_preds(model, test_dataset, return_classes=True):
     prediction_logits = model.predict(test_dataset)['logits']
     probabilities = tf.nn.softmax(prediction_logits)
-    return np.argmax(probabilities, axis=1)
+    if return_classes:
+        return np.argmax(probabilities, axis=1)
+    else:
+        return probabilities
 
 
 def get_classification_evaluation_metrics(class_actual, class_preds, average='binary'):
