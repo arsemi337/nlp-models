@@ -65,7 +65,7 @@ def get_class_preds(model, test_dataset, return_classes=True):
     if return_classes:
         return np.argmax(probabilities, axis=1)
     else:
-        return probabilities
+        return probabilities.numpy()
 
 
 def get_classification_evaluation_metrics(class_actual, class_preds, average='binary'):
