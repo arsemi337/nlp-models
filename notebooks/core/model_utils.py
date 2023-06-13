@@ -6,10 +6,11 @@ import tensorflow as tf
 import sklearn.metrics as skmetrics
 
 
-def split_train_val_test(tokenized_dataset, train_size, test_size_of_val_test_batch, seed=42):
-    split_train_val_and_test_dataset = tokenized_dataset.train_test_split(train_size=train_size, seed=seed)
+def split_train_val_test(tokenized_dataset, train_size, test_size_of_val_test_batch, shuffle=False, seed=42):
+    split_train_val_and_test_dataset = tokenized_dataset.train_test_split(train_size=train_size, shuffle=shuffle,
+                                                                          seed=seed)
     split_val_test_dataset = split_train_val_and_test_dataset["test"].train_test_split(
-        test_size=test_size_of_val_test_batch, seed=seed)
+        test_size=test_size_of_val_test_batch, shuffle=shuffle, seed=seed)
 
     tokenized_train_dataset = split_train_val_and_test_dataset["train"]
     tokenized_val_dataset = split_val_test_dataset["train"]
