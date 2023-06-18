@@ -60,9 +60,12 @@ def save_model(model, model_name, training_number, saved_models_dir, default_mod
     model.save(os.path.join(saved_models_dir, saved_model_name, default_model_version))
 
 
-def get_class_preds(model, test_dataset, return_classes=True):
-    prediction_logits = model.predict(test_dataset)['logits']
-    probabilities = tf.nn.softmax(prediction_logits)
+def get_class_preds(model, test_dataset, return_classes=True, model_returns_logits=True):
+    if model_returns_logits:
+        predictions = model.predict(test_dataset)['logits']
+    else:
+        predictions = model.predict(test_dataset)
+    probabilities = tf.nn.softmax(predictions)
     if return_classes:
         return np.argmax(probabilities, axis=1)
     else:

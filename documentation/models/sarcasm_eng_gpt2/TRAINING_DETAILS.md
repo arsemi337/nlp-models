@@ -1,7 +1,7 @@
 # Training details
 
 All the trainings are fine-tuning of ***gpt2*** model. The used dataset is available in
-the [dataset .json file](../../../data/news_headlines_for_sarcasm_detection/Sarcasm_Headlines_Dataset_v2.json).
+the [dataset .json file](../../../data/english_original/sarcasm/Sarcasm_Headlines_Dataset_v2.json).
 Originally it consists of 28619 data samples.
 
 | Training no. | Data samples | Train set % | Val set % | Test set % | Batch size | Epochs | Best epoch |         Fitting time         | Train accuracy | Train loss | Val accuracy | Val loss | Test accuracy | Test loss |               Accuracy figure               |               Loss figure               |               Confusion matrix                |            Notes            |

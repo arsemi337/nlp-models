@@ -1,6 +1,6 @@
 # Training details
 
-All the trainings are fine-tuning of ***bert-base-uncased*** or ***distilbert-base-uncased*** model. The used dataset is available in the [dataset .pkl file](../../../data/dair-ai-emotions/merged_training.pkl). Originally it consists of 416809 data samples.
+All the trainings are fine-tuning of ***bert-base-uncased*** or ***distilbert-base-uncased*** model. The used dataset is available in the [dataset .pkl file](../../../data/english_original/emotions/merged_training.pkl). Originally it consists of 416809 data samples.
 
 | Training no. | Data samples | Train set % | Val set % | Test set % | Batch size | Epochs | Best epoch |         Fitting time         | Train accuracy | Train loss | Val accuracy | Val loss | Test accuracy | Test loss |               Accuracy figure               |                                                     Notes                                                     |
 |:------------:|:------------:|:-----------:|:---------:|:----------:|:----------:|:------:|:----------:|:----------------------------:|:--------------:|:----------:|:------------:|:--------:|:-------------:|:---------:|:-------------------------------------------:|:-------------------------------------------------------------------------------------------------------------:|
