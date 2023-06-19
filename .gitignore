@@ -1,3 +1,4 @@
 trained_models/
 /training_checkpoints/*/training_*/
 .idea/
+notebooks/word2vec/
